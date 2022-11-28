@@ -22,9 +22,9 @@ export const getPlans = () => {
 };
 console.log(getPlans());
 
-export const getGoals = () => {
+export const getGoal = () => {
   const element = document.querySelector('.goal').outerHTML;
   return element;
 };
 
-console.log(getGoals());
+console.log(getGoal());
