@@ -3,6 +3,6 @@
 // 2 с помощью дом находим боди
 // 3 с помощью иннерХТМЛ уст ему строку с кнопкой
 
-const setButton = (buttonText) =>
+export const setButton = (buttonText) =>
   (document.querySelector('body').innerHTML = `<button>${buttonText}</button>`);
 
