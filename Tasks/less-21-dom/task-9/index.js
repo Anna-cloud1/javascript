@@ -4,7 +4,7 @@
 // юзаем подходящий метод 
 
 
-const finishList = () => {
+export const finishList = () => {
   const listElem = document.querySelector('.list');
   const special = document.querySelector('.special');
 
