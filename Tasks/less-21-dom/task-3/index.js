@@ -1,4 +1,4 @@
-const getItemsList = () => {
+export const getItemsList = () => {
   const elementList = document.querySelectorAll('.technology');
   console.dir(elementList);
   return elementList;
@@ -6,7 +6,7 @@ const getItemsList = () => {
 
 getItemsList();
 
-const getItemsArray = () => {
+export const getItemsArray = () => {
   const elementsArray = Array.from(document.querySelectorAll('.tool'));
   Array.from(elementsArray);
   console.dir(elementsArray);
