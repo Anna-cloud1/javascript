@@ -4,9 +4,6 @@
 // 3 вставляем его в боди с помощью append
 
 export const createButton = (buttonText) => {
-  const bodyEl = document.querySelector('body');
   const button = (document.createElement('button').textContent = buttonText);
-  bodyEl.append(button);
+  document.querySelector('body').append(button);
 };
-
-console.log(createButton('Send Email'));
