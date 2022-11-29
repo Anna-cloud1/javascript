@@ -1,6 +1,4 @@
 export const getSection = (num) => {
-  const span = document
-    .querySelectorAll(`span[data-number="${num}"]`)
-    .closest('.box');
-  return span.dataset.section;
+  const span = document.querySelectorAll(`span[data-number="${num}"]`);
+  return span.closest('.box').dataset.section;
 };
