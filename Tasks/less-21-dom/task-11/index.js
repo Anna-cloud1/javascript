@@ -1,6 +1,6 @@
 export const manageClasses = () => {
   const addClass = document.querySelector('.one');
-  addClass.className += ' selected';
+  addClass. classList.add('selected');
 
   const removeClass = document.querySelector('.two');
   removeClass.classList.remove('selected');
@@ -9,7 +9,5 @@ export const manageClasses = () => {
   toggleClass.classList.toggle('three_done');
 
   const anotherClassIf = document.querySelector('.some-class');
-  anotherClassIf.className += ' another-class';
+  anotherClassIf.classList.add('another-class');
 };
-
-console.log(manageClasses());
