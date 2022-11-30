@@ -30,7 +30,6 @@ spanElem.addEventListener('click', logGreenSpan);
 // btn
 const clearBtn = document.querySelector('.clear-btn');
 const attachHandlersBtn = document.querySelector('.attach-handlers-btn');
-const removeHandlersBtn = document.querySelector('.remove-handlers-btn');
 
 const clearBoard = () => {
   const list = document.querySelector('.events-list');
@@ -52,7 +51,9 @@ const remove = () => {
   spanElem.addEventListener('click', logGreenSpan);
 };
 
-removeHandlersBtn.removeEventListener('click', remove());
+const removeHandlersBtn = document
+  .querySelector('.remove-handlers-btn');
+removeHandlersBtn.addEventListener('click', remove());
 
 const attachHandlers = () => {
   divElem.addEventListener('click', logGreyDiv, true);
