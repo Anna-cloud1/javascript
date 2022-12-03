@@ -1,8 +1,10 @@
-/* eslint-disable prettier/prettier */
-const emailErrorElem = document.querySelector('#email');
-const passwordErrorElem = document.querySelector('#password');
+const emailInputElem = document.querySelector('#email');
+const passwordInputElem = document.querySelector('#password');
 
-const isRequired = (value) => (value.includes('@') ? undefined : 'Required');
+const emailErrorElem = document.querySelector('.error-text_email');
+const passwordErrorElem = document.querySelector('.error-text_password');
+
+const isRequired = (value) => (value ? undefined : 'Required');
 
 const isEmail = (value) =>
   value.includes('@') ? undefined : 'Should be an email';
@@ -29,9 +31,8 @@ const onPasswordChange = (event) => {
   const errorText = validate('password', event.target.value);
   passwordErrorElem.textContent = errorText;
 };
-
-emailErrorElem.addEventListener('input', onEmailChange);
-passwordErrorElem.addEventListener('input', onPasswordChange);
+emailInputElem.addEventListener('input', onEmailChange);
+passwordInputElem.addEventListener('input', onPasswordChange);
 
 const formElem = document.querySelector('.login-form');
 
