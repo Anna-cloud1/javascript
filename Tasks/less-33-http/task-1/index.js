@@ -5,15 +5,17 @@ const userLocationElem = document.querySelector('.user__location');
 const showUserBtnElem = document.querySelector('.name-form__btn');
 const userNameInputEl = document.querySelector('.name-form__input');
 
-const fetchUserData = (userName) =>
-  fetch(`https://api.github.com/users/${userName}`)
-    .then((response) => response.json());
+const fetchUserData = (userName) => {
+   return fetch(`https://api.github.com/users/${userName}`)
+    .then((response) => response.json()); 
+};
+
 
 const renderUserData = (userData) => {
   const { avatar_url, name, location } = userData;
   userAvatarElem.src = avatar_url;
   userNameElem.textContent = name;
-  userLocationElem.textContent = location ? ` from ${location}` : '';
+  userLocationElem.textContent = location ? `from ${location}` : '';
 };
 
 const onSearchUser = () => {
