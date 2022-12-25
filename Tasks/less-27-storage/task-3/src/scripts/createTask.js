@@ -1,5 +1,6 @@
 import { renderTasks } from './renderer.js';
 import { getItem, setItem } from './storage.js';
+import { createTask, getTasksList } from './tasksGateway.js';
 
 export const onCreateTask = () => {
   const taskTitleInputElem = document.querySelector('.task-input');
@@ -10,16 +11,23 @@ export const onCreateTask = () => {
     return;
   }
   taskTitleInputElem.value = '';
-  const tasksList = getItem('tasksList') || [];
 
-  const newTasksList = tasksList.concat({
+  const newTask = {
     text,
     done: false,
     createDate: new Date().toISOString(),
-    id: Math.random().toString(),
-  });
+  };
 
-  setItem('tasksList', newTasksList);
-
-  renderTasks();
+  createTask(newTask)
+    .then(() => getTasksList())
+    .then(newTasksList => {
+      setItem('tasksList', newTasksList);
+      renderTasks();
+    });
 };
+
+// 1. Prepare data
+// 2. Write data to DB
+// 3. Read new data from server
+// 4. Save new data to front-end storage
+// 5. Update UI based on new data
