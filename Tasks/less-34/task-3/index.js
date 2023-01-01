@@ -19,7 +19,7 @@ const ifFieldsValid = () => {
 loginFormFields.addEventListener('input', ifFieldsValid);
 
 
-const serverResponse = () => {
+export const serverResponse = () => {
   const userData = Object.fromEntries(new FormData(loginFormFields));
   return fetch(url, {
     method: 'POST',
