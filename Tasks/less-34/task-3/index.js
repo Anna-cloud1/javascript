@@ -3,17 +3,18 @@
 // 3 отпр данные на сервер c помощью фетч и получить с него данные с помощью алерта
 // 4 очистить поля ввода
 
-const url = `https://63a8af9c100b7737b983b748.mockapi.io/tasks/users`;
+const url = `https://63a8af9c100b7737b983b748.mockapi.io/tasks/`;
 
 const loginFormFields = document.querySelector('.login-form');
 const submitButton = document.querySelector('.submit-button');
 
 const ifFieldsValid = () => {
   const validFields = loginFormFields.reportValidity();
-  if (!validFields) {
-    return;
+  if (validFields) {
+    submitButton.removeAttribute('disabled');
+  } else {
+    submitButton.setAttribute('disabled', true);
   }
-  submitButton.removeAttribute('disabled');
 };
 
 loginFormFields.addEventListener('input', ifFieldsValid);
@@ -27,7 +28,13 @@ const serverResponse = (event) => {
       'Content-Type': 'application/json;charset=utf-8',
     },
     body: JSON.stringify(userData),
-  }).then((response) => response.json());
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      alert(JSON.stringify(response));
+      loginFormFields.reset();
+      submitButton.setAttribute('disabled', true);
+    });
 };
 
-submitButton.addEventListener('submit', serverResponse);
+submitButton.addEventListener('click', serverResponse);
