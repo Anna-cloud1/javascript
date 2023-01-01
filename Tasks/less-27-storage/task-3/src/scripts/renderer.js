@@ -6,9 +6,11 @@ const compareTasks = (a, b) => {
   if (a.done - b.done !== 0) {
     return a.done - b.done;
   }
+
   if (a.done) {
     return new Date(b.finishDate) - new Date(a.finishDate);
   }
+
   return new Date(b.createDate) - new Date(a.createDate);
 };
 
@@ -29,13 +31,7 @@ const createListItem = ({ text, done, id }) => {
   if (done) {
     listItemElem.classList.add('list__item_done');
   }
-    const textElem = document.createElement('span');
-    textElem.classList.add('list__item-text');
-    textElem.textContent = text;
-
-  const deleteBtnElem = document.createElement('button');
-  deleteBtnElem.classList.add('list__item-delete-btn');
-  listItemElem.append(checkboxElem, text, deleteBtnElem);
+  listItemElem.append(checkboxElem, text);
 
   return listItemElem;
 };
