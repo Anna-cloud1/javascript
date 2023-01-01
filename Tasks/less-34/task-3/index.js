@@ -18,8 +18,8 @@ const ifFieldsValid = () => {
 
 loginFormFields.addEventListener('input', ifFieldsValid);
 
-
-export const serverResponse = () => {
+const serverResponse = (event) => {
+  event.preventDefault();
   const userData = Object.fromEntries(new FormData(loginFormFields));
   return fetch(url, {
     method: 'POST',
@@ -32,7 +32,6 @@ export const serverResponse = () => {
     .then((data) => {
       alert(JSON.stringify(data));
       loginFormFields.reset();
-      submitButton.setAttribute('disabled', true);
     });
 };
 
