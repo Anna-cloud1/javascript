@@ -19,7 +19,7 @@ const ifFieldsValid = () => {
 loginFormFields.addEventListener('input', ifFieldsValid);
 
 const serverResponse = (event) => {
-  event.JSON.stringify();
+  event.preventDefault();
   const userData = Object.fromEntries(new FormData(loginFormFields));
   return fetch(url, {
     method: 'POST',
@@ -27,12 +27,7 @@ const serverResponse = (event) => {
       'Content-Type': 'application/json;charset=utf-8',
     },
     body: JSON.stringify(userData),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      alert(JSON.stringify(data));
-      loginFormFields.reset();
-    });
+  }).then((response) => response.json());
 };
 
-submitButton.addEventListener('input', serverResponse);
+submitButton.addEventListener('submit', serverResponse);
