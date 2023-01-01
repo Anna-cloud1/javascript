@@ -1,6 +1,6 @@
 // 1 найти все нужные дом эл
 // 2 сделать кнопку доступной для нажатия при всех заполненных полях
-// 3 отпр данные на сервер и получить с него данные с помощью алерта
+// 3 отпр данные на сервер c помощью фетч и получить с него данные с помощью алерта
 // 4 очистить поля ввода
 
 const url = `https://63a8af9c100b7737b983b748.mockapi.io/tasks/users`;
@@ -19,7 +19,7 @@ const ifFieldsValid = () => {
 loginFormFields.addEventListener('input', ifFieldsValid);
 
 const serverResponse = (event) => {
-  event.preventDefault();
+  event.JSON.stringify();
   const userData = Object.fromEntries(new FormData(loginFormFields));
   return fetch(url, {
     method: 'POST',
