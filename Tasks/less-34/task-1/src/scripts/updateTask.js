@@ -1,3 +1,4 @@
+import { onDeleteTask } from "./deleteTask.js";
 import { renderTasks } from "./renderer.js";
 import { getItem, setItem } from "./storage.js";
 import { getTasksList, updateTask } from "./tasksGateway.js";
